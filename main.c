@@ -1,13 +1,6 @@
 #include <gtk/gtk.h>
 
 static void
-print_hello (GtkWidget *widget,
-             gpointer   data)
-{
-    g_print ("Hello World\n");
-}
-
-static void
 activate (GtkApplication *app,
           gpointer        user_data)
 {
@@ -45,7 +38,7 @@ activate (GtkApplication *app,
     gtk_widget_set_hexpand (box, TRUE);
     gtk_widget_set_vexpand (box, TRUE);
 
-    GtkWidget* label = gtk_label_new("Hi Kailani!");
+    GtkWidget* label = gtk_label_new("Hello Kailani!");
     gtk_widget_add_css_class (label, "main-label");
     gtk_widget_set_halign (label, GTK_ALIGN_CENTER);
     gtk_widget_set_valign (label, GTK_ALIGN_CENTER);
