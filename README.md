@@ -2,9 +2,7 @@
 
 These steps are needed beyond just running the CMAKE or relying on vcpkg.
 
-## Linux / Ubuntu
-
-### GTK - to address vcpkg compile errors
+## GTK - to address vcpkg compile errors
 
 ```shell
 sudo apt install autoconf autoconf-archive automake libtool m4 pkg-config
@@ -19,4 +17,10 @@ sudo apt install libxdamage-dev
 sudo apt install libxinerama-dev
 sudo apt install libxrender-dev libxfixes-dev libxcomposite-dev libxkbcommon-dev libxkbcommon-x11-dev
 sudo apt install meson libegl1-mesa-dev libgl1-mesa-dev libwayland-dev wayland-protocols libfontconfig1-dev libfreetype6-dev
+```
+
+## Icon install (manual)
+
+```shell
+cmake --install cmake-build-debug --prefix ~/.local
 ```

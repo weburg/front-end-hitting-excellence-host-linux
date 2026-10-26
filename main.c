@@ -28,7 +28,7 @@ activate (GtkApplication *app,
 
     GtkIconTheme *icon_theme = gtk_icon_theme_get_for_display (gdk_display_get_default ());
     gtk_icon_theme_add_search_path (icon_theme, ".");
-    gtk_window_set_icon_name (GTK_WINDOW (window), "fetherlogo");
+    gtk_window_set_icon_name (GTK_WINDOW (window), "com.weburg.fether");
 
     gtk_window_set_title (GTK_WINDOW (window), "FEtHEr");
     gtk_window_set_default_size (GTK_WINDOW (window), 0, 0);
@@ -61,7 +61,7 @@ main (int    argc,
     GtkApplication *app;
     int status;
 
-    app = gtk_application_new ("com.weburg.fether.example", G_APPLICATION_DEFAULT_FLAGS);
+    app = gtk_application_new ("com.weburg.fether", G_APPLICATION_DEFAULT_FLAGS);
     g_signal_connect (app, "activate", G_CALLBACK (activate), NULL);
     status = g_application_run (G_APPLICATION (app), argc, argv);
     g_object_unref (app);
