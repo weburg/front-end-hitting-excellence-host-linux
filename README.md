@@ -19,7 +19,7 @@ sudo apt install libxrender-dev libxfixes-dev libxcomposite-dev libxkbcommon-dev
 sudo apt install meson libegl1-mesa-dev libgl1-mesa-dev libwayland-dev wayland-protocols libfontconfig1-dev libfreetype6-dev
 ```
 
-## Icon install (manual)
+## Icon and local app install for basic integration testing
 
 ```shell
 cmake --install cmake-build-debug --prefix ~/.local

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=FEtHEr
+Comment=FEtHEr
+Exec=FEtHEr
+Icon=com.weburg.example.fether
+Terminal=false
+Categories=Utility;
+StartupNotify=true
+StartupWMClass=com.weburg.example.fether
