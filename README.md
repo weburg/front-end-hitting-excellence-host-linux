@@ -1,8 +1,14 @@
-# Special requirements
+# Front End Hitting Excellence Host on Linux (FEtHEr)
+
+![Logo](https://www.weburg.com/fether/images/fetherlogo.png)
+
+## A host application written to use FEtHEr and shared core
+
+### Special requirements
 
 These steps are needed beyond just running the CMAKE or relying on vcpkg.
 
-## GTK - to address vcpkg compile errors
+#### GTK - to address vcpkg compile errors
 
 ```shell
 sudo apt install autoconf autoconf-archive automake libtool m4 pkg-config
@@ -19,7 +25,7 @@ sudo apt install libxrender-dev libxfixes-dev libxcomposite-dev libxkbcommon-dev
 sudo apt install meson libegl1-mesa-dev libgl1-mesa-dev libwayland-dev wayland-protocols libfontconfig1-dev libfreetype6-dev
 ```
 
-## Icon and local app install for basic integration testing
+#### Icon and local app install for basic integration testing
 
 ```shell
 cmake --install cmake-build-debug --prefix ~/.local
