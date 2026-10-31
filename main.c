@@ -1,54 +1,30 @@
 #include <gtk/gtk.h>
-
-static void set_default_window_size(GtkWindow *window)
-{
-    GdkDisplay *display = gdk_display_get_default();
-    if (display == NULL)
-        return;
-
-    GListModel *monitors = gdk_display_get_monitors(display);
-    guint n_monitors = g_list_model_get_n_items(monitors);
-
-    if (n_monitors == 0)
-        return;
-
-    int smallest_dimension = G_MAXINT;
-
-    for (guint i = 0; i < n_monitors; i++) {
-        GdkMonitor *monitor = g_list_model_get_item(monitors, i);
-
-        GdkRectangle geometry;
-        gdk_monitor_get_geometry(monitor, &geometry);
-
-        int monitor_smallest_dimension = MIN(geometry.width, geometry.height);
-        smallest_dimension = MIN(smallest_dimension, monitor_smallest_dimension);
-
-        g_object_unref(monitor);
-    }
-
-    int height = (int) (smallest_dimension * 0.70);
-    int width = height * 16 / 9;
-
-    gtk_window_set_default_size(window, width, height);
-}
+#include "ui.h"
 
 static void activate(GtkApplication *app, gpointer user_data)
 {
+    GdkDisplay *display = gdk_display_get_default();
     GtkCssProvider* provider = gtk_css_provider_new();
-    gtk_css_provider_load_from_data(
+
+    gtk_css_provider_load_from_string(
         provider,
         ".main-background {"
-        "  background-color: navy;"
+        "  background-color: hotpink;"
         "}"
         ".main-label {"
-        "  color: hotpink;"
+        "  color: navy;"
         "  font-size: 32px;"
-        "}",
-        -1
+        "}"
+        ".main-background.dark {"
+        "  background-color: navy;"
+        "}"
+        ".main-label.dark {"
+        "  color: hotpink;"
+        "}"
     );
 
     gtk_style_context_add_provider_for_display(
-        gdk_display_get_default(),
+        display,
         GTK_STYLE_PROVIDER(provider),
         GTK_STYLE_PROVIDER_PRIORITY_APPLICATION
     );
@@ -78,8 +54,9 @@ static void activate(GtkApplication *app, gpointer user_data)
     gtk_box_append(GTK_BOX(box), label);
     gtk_window_set_child(GTK_WINDOW(window), box);
 
+    ui_watch_color_scheme(app, box, label);
     gtk_window_present(GTK_WINDOW(window));
-    set_default_window_size(GTK_WINDOW(window));
+    ui_set_default_window_size(GTK_WINDOW(window));
 }
 
 int main(int argc, char **argv)

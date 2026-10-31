@@ -3,7 +3,7 @@ project(FEtHEr C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(FEtHEr main.c)
+add_executable(FEtHEr main.c ui.c)
 
 find_package(PkgConfig REQUIRED)
 set(PKG_CONFIG_USE_CMAKE_PREFIX_PATH ON)
